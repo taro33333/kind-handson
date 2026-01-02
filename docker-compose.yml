@@ -1,0 +1,21 @@
+services:
+  handson:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: k8s-security-handson:latest
+    container_name: k8s-security-handson
+    privileged: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - handson-data:/home/handson/workspace/my-work
+      - minikube-data:/home/handson/.minikube
+      - kube-config:/home/handson/.kube
+    stdin_open: true
+    tty: true
+    network_mode: "host"
+
+volumes:
+  handson-data:
+  minikube-data:
+  kube-config:
