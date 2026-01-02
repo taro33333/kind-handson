@@ -18,7 +18,7 @@ docker compose up -d --build
 docker compose exec handson bash
 
 # 3. kindでクラスタ作成（推奨）
-kind create cluster --name handson
+kind create cluster --name handson --config kind-config.yaml
 
 # 4. 確認
 kubectl get nodes

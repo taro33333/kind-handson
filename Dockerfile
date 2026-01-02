@@ -64,6 +64,9 @@ RUN echo 'source <(kubectl completion bash)' >> /home/handson/.bashrc \
 # 作業ディレクトリを設定
 WORKDIR /home/handson/workspace
 
+# kind設定ファイルをコピー
+COPY --chown=handson:handson kind-config.yaml /home/handson/workspace/kind-config.yaml
+
 # リポジトリをクローン
 RUN git clone https://github.com/mochizuki875/kubernetes-container-security-book.git /home/handson/workspace/book \
     && chown -R handson:handson /home/handson
